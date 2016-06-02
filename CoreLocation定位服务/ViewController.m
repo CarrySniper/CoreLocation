@@ -28,18 +28,32 @@
     //4.初始化对象
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    
+    //横向移动多少距离后更新位置信息(米)
     self.locationManager.distanceFilter = 1.0;
+    
+    /*
+     desiredAccuracy:位置的精度属性
+     
+     kCLLocationAccuracyBest                精确度最佳
+     kCLLocationAccuracynearestTenMeters    精确度10m以内
+     kCLLocationAccuracyHundredMeters       精确度100m以内
+     kCLLocationAccuracyKilometer           精确度1000m以内
+     kCLLocationAccuracyThreeKilometers     精确度3000m以内
+     */
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
     {
-        [self.locationManager requestAlwaysAuthorization]; // 永久授权
-        [self.locationManager requestWhenInUseAuthorization]; //使用中授权
+        [self.locationManager requestAlwaysAuthorization];      // 永久授权
+        [self.locationManager requestWhenInUseAuthorization];   //使用中授权
     }
     
+    //开启位置更新
+    [self.locationManager startUpdatingLocation];
     
-    [self.locationManager startUpdatingLocation];//开启位置更新
-//    [self.locationManager stopUpdatingLocation];//停止位置更新
+    //停止位置更新
+//    [self.locationManager stopUpdatingLocation];
     
 }
 
@@ -54,6 +68,7 @@
 {
     NSLog(@"经度：%f", newLocation.coordinate.latitude);
     NSLog(@"纬度：%f", newLocation.coordinate.longitude);
+    NSLog(@"速度：%f 米/秒", newLocation.speed);
     
     CLGeocoder * geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
