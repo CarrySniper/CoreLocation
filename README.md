@@ -16,10 +16,7 @@ kCLLocationAccuracyHundredMeters —— 精确度100m以内<br>
 kCLLocationAccuracyKilometer —— 精确度1000m以内<br>
 kCLLocationAccuracyThreeKilometers —— 精确度3000m以内<br>
 
-为适配iOS8需要配置info.plist文件
+##为适配iOS8需要配置info.plist文件
 
-      添加2行：
-
-      NSLocationAlwaysUsageDescription 设为Boolean类型 = YES
-
-      NSLocationWhenInUseUsageDescription 设为Boolean类型 = YES
+NSLocationAlwaysUsageDescription 设为Boolean类型 = YES <br>
+NSLocationWhenInUseUsageDescription 设为Boolean类型 = YES <br>
