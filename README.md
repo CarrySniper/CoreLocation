@@ -1,7 +1,11 @@
 # CoreLocation
 CoreLocation定位服务，获取经纬度和定位细信息。
 
+百度经验：http://jingyan.baidu.com/article/f54ae2fc0acdca1e92b849ab.html
+##效果图
+![](https://github.com/cjq002/CoreLocation/raw/master/IMAGE/demo.png) 
 
+##属性说明
 distanceFilter：横向移动多少距离后更新位置信息 <br>
 
 desiredAccuracy:位置的精度属性<br>
