@@ -72,12 +72,20 @@
     
     CLGeocoder * geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        
-        NSDictionary *locationInfo = [[NSDictionary alloc]init];
-        for (CLPlacemark * placemark in placemarks) {
-            locationInfo = [placemark addressDictionary];
+        if (error || placemarks.count==0) {
+            NSLog(@"%@",error);
+        }else{
+            
+            //打印查看找到的所有的位置信息
+//            for (CLPlacemark * placemark in placemarks) {
+//                NSLog(@"所有：%@",[placemark addressDictionary]);
+//            }
+            
+            //取出获取的地理信息数组中的第一个
+            CLPlacemark *firstPlacemark = [placemarks firstObject];
+            NSLog(@"%@",firstPlacemark.addressDictionary);
         }
-        NSLog(@"%@",locationInfo);
+        
     }];
 }
 
