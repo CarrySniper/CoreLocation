@@ -66,8 +66,8 @@
 #pragma mark - 定位代理更新位置成功回调
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"经度：%f", newLocation.coordinate.latitude);
-    NSLog(@"纬度：%f", newLocation.coordinate.longitude);
+    NSLog(@"经度：%f", newLocation.coordinate.longitude);
+    NSLog(@"纬度：%f", newLocation.coordinate.latitude);
     NSLog(@"速度：%f 米/秒", newLocation.speed);
     
     CLGeocoder * geocoder = [[CLGeocoder alloc] init];
@@ -90,8 +90,9 @@
 }
 
 /*
- 经度：23.136150
- 纬度：113.328911
+ 经度：113.328758
+ 纬度：23.136268
+ 速度：-1.000000 米/秒
  
  {
      City = "广州市";
